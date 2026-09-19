@@ -2,6 +2,10 @@
 
 A basic Global Chat plugin for Velocity proxy server
 
+Support LuckPerms Prefix and Suffix
+
+Support MiniMessage parsing for Prefix/Suffix (player cannot send message with MiniMessage format)
+
 > Note: This plugin is create with assistance from DeepSeek
 
 # Config
