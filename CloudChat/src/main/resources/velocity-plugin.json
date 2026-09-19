@@ -1,7 +1,0 @@
-{
-  "id": "cloudchat",
-  "name": "CloudChat",
-  "version": "0.2",
-  "main": "dev.laf.cloudchat.CloudChat",
-  "authors": ["LaF Group"]
-}
