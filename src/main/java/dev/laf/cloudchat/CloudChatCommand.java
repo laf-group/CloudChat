@@ -28,9 +28,18 @@ public final class CloudChatCommand {
                 .<CommandSource, String>argument("message", StringArgumentType.greedyString())
                 .executes(context -> {
                     Player player = (Player) context.getSource();
+
+                    // Permission gate
+                    String permUse = plugin.getConfig().getPermUse();
+                    if (!player.hasPermission(permUse)) {
+                        player.sendMessage(Component.text(
+                            "You don't have permission to use global chat.",
+                            NamedTextColor.RED));
+                        return 0;
+                    }
+
                     String input = StringArgumentType.getString(context, "message");
 
-                    // --- Toggle: enable ---
                     if (input.equals("$on")) {
                         plugin.setGlobalChatEnabled(player.getUniqueId(), true);
                         player.sendMessage(Component.text(
@@ -38,7 +47,6 @@ public final class CloudChatCommand {
                         return 1;
                     }
 
-                    // --- Toggle: disable ---
                     if (input.equals("$off")) {
                         plugin.setGlobalChatEnabled(player.getUniqueId(), false);
                         player.sendMessage(Component.text(
@@ -46,7 +54,6 @@ public final class CloudChatCommand {
                         return 1;
                     }
 
-                    // --- Send message (but only if enabled) ---
                     if (!plugin.isGlobalChatEnabled(player.getUniqueId())) {
                         player.sendMessage(Component.text(
                             "You have global chat disabled. Use /gc $on to enable it.",

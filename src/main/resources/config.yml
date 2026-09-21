@@ -1,0 +1,22 @@
+# Builtin Placeholders
+#  server - current server of player
+#  player - current player
+#  message - message sent by player
+#  prefix - luckperms prefix of player
+#  suffix - luckperms suffix of player
+#  group - group name/identifier or player
+
+
+# Message Parts ( %part_<id>% )
+parts:
+    global: '<dark_gray>[<#E8B4B8>GLOBAL<dark_gray>]'
+    server: '<dark_gray>[<#7FDBDA>%server%<dark_gray>]'
+    player: '%prefix% %player% %suffix%'
+
+# Always use MiniMessage to format the message!
+message: '%part_global% %part_server%<reset> %part_player% <dark_gray>» <reset><white> %message%'
+
+# Permissions
+permissions:
+    use: cloudchat.use
+    reload: cloudchat.reload
